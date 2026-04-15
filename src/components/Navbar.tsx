@@ -14,6 +14,8 @@ export default function Navbar({ onBookNow, onNavigate, currentView }: NavbarPro
 
   const navItems = [
     { label: 'Services', id: 'services' },
+    { label: 'Commercial', id: 'commercial' },
+    { label: 'Airbnb', id: 'airbnb' },
     { label: 'About Us', id: 'about' },
     { label: 'Reviews', id: 'reviews' },
     { label: 'FAQ', id: 'faq' },

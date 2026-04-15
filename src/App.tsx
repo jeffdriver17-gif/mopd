@@ -15,8 +15,10 @@ import ReviewsPage from './components/ReviewsPage';
 import FAQPage from './components/FAQPage';
 import PrivacyPage from './components/PrivacyPage';
 import TermsPage from './components/TermsPage';
+import CommercialPage from './components/CommercialPage';
+import AirbnbPage from './components/AirbnbPage';
 
-type View = 'home' | 'services' | 'booking' | 'about' | 'reviews' | 'faq' | 'privacy' | 'terms';
+type View = 'home' | 'services' | 'booking' | 'about' | 'reviews' | 'faq' | 'privacy' | 'terms' | 'commercial' | 'airbnb';
 
 export default function App() {
   const [currentView, setCurrentView] = React.useState<View>('home');
@@ -49,6 +51,10 @@ export default function App() {
         return <PrivacyPage />;
       case 'terms':
         return <TermsPage />;
+      case 'commercial':
+        return <CommercialPage onBookNow={() => setCurrentView('booking')} />;
+      case 'airbnb':
+        return <AirbnbPage onBookNow={() => setCurrentView('booking')} />;
       default:
         return <LandingPage onBookNow={() => setCurrentView('booking')} onViewServices={() => setCurrentView('services')} />;
     }

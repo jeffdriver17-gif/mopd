@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle, Minus, Plus, ShieldCheck, Home, Sparkles, Truck, Microwave, Shirt, Refrigerator, Calendar as CalendarIcon, Clock, MapPin, User, Mail, Phone, Dog, LayoutDashboard, FileText } from 'lucide-react';
+import { CheckCircle, Minus, Plus, ShieldCheck, Home, Sparkles, Truck, Microwave, Shirt, Refrigerator, Calendar as CalendarIcon, Clock, MapPin, User, Mail, Phone, Dog, LayoutDashboard, FileText, AppWindow } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 import Calendar from './Calendar';
 
@@ -19,7 +19,7 @@ export default function BookingPage() {
   const [selectedTime, setSelectedTime] = React.useState('Anytime (8am - 4pm)');
   const [bedrooms, setBedrooms] = React.useState(2);
   const [bathrooms, setBathrooms] = React.useState(1);
-  const [windows, setWindows] = React.useState(0);
+  const [windowCount, setWindowCount] = React.useState<number | ''>('');
   const [condition, setCondition] = React.useState('average');
   const [frequency, setFrequency] = React.useState('weekly');
   const [selectedAddons, setSelectedAddons] = React.useState<string[]>([]);
@@ -38,6 +38,7 @@ export default function BookingPage() {
     { id: 'laundry', label: 'Laundry', icon: Shirt },
     { id: 'pets', label: 'Pet Hair Fee', icon: Dog },
     { id: 'basement', label: 'Finished Basement', icon: LayoutDashboard },
+    { id: 'windows', label: 'Window Cleaning (Interior)', icon: AppWindow },
   ];
 
   const services = [
@@ -167,25 +168,6 @@ export default function BookingPage() {
                   </button>
                 </div>
               </div>
-              {/* Windows */}
-              <div className="space-y-4">
-                <label className="text-xs font-bold uppercase tracking-widest text-on-surface-variant font-headline">Number of Windows</label>
-                <div className="flex items-center justify-between bg-surface-container-lowest p-4 rounded-full">
-                  <button 
-                    onClick={() => setWindows(Math.max(0, windows - 1))}
-                    className="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-high text-on-surface hover:bg-primary hover:text-white transition-colors"
-                  >
-                    <Minus className="w-5 h-5" />
-                  </button>
-                  <span className="text-2xl font-bold font-headline text-primary">{windows.toString().padStart(2, '0')}</span>
-                  <button 
-                    onClick={() => setWindows(windows + 1)}
-                    className="w-10 h-10 rounded-full flex items-center justify-center bg-primary text-white hover:opacity-90 transition-opacity"
-                  >
-                    <Plus className="w-5 h-5" />
-                  </button>
-                </div>
-              </div>
             </div>
 
             {/* Condition Selector */}
@@ -250,25 +232,39 @@ export default function BookingPage() {
             {/* Add-ons */}
             <div className="space-y-4 border-t border-outline-variant/10 pt-10">
               <label className="text-xs font-bold uppercase tracking-widest text-on-surface-variant font-headline">Service Add-ons</label>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {ADDON_OPTIONS.map((addon) => {
                   const isSelected = selectedAddons.includes(addon.id);
                   return (
-                    <button
-                      key={addon.id}
-                      onClick={() => setSelectedAddons(prev => 
-                        isSelected ? prev.filter(id => id !== addon.id) : [...prev, addon.id]
+                    <div key={addon.id} className="flex flex-col gap-2">
+                      <button
+                        onClick={() => {
+                          setSelectedAddons(prev =>
+                            isSelected ? prev.filter(id => id !== addon.id) : [...prev, addon.id]
+                          );
+                          if (addon.id === 'windows' && isSelected) setWindowCount('');
+                        }}
+                        className={cn(
+                          "p-4 rounded-2xl flex flex-col items-center justify-center text-center gap-3 transition-all ring-1 w-full",
+                          isSelected
+                            ? "bg-primary-container text-primary ring-primary"
+                            : "bg-surface-container-highest text-on-surface hover:bg-surface-variant ring-transparent"
+                        )}
+                      >
+                        <addon.icon className="w-6 h-6" />
+                        <div className="font-bold text-xs leading-tight">{addon.label}</div>
+                      </button>
+                      {addon.id === 'windows' && isSelected && (
+                        <input
+                          type="number"
+                          min={1}
+                          value={windowCount}
+                          onChange={e => setWindowCount(e.target.value === '' ? '' : Number(e.target.value))}
+                          placeholder="How many windows?"
+                          className="w-full bg-surface-container-highest border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary text-on-surface font-medium outline-none text-sm text-center"
+                        />
                       )}
-                      className={cn(
-                        "p-4 rounded-2xl flex flex-col items-center justify-center text-center gap-3 transition-all ring-1",
-                        isSelected 
-                          ? "bg-primary-container text-primary ring-primary" 
-                          : "bg-surface-container-highest text-on-surface hover:bg-surface-variant ring-transparent"
-                      )}
-                    >
-                      <addon.icon className="w-6 h-6" />
-                      <div className="font-bold text-xs leading-tight">{addon.label}</div>
-                    </button>
+                    </div>
                   );
                 })}
               </div>
@@ -346,7 +342,7 @@ export default function BookingPage() {
                 <div>
                   <p className="text-on-surface font-bold capitalize">{selectedTier.replace('-', ' ')} Clean</p>
                   <p className="text-sm text-on-surface-variant mt-1">{bedrooms} Bedrooms, {bathrooms} Bathroom</p>
-                  {windows > 0 && <p className="text-sm text-on-surface-variant mt-0.5">{windows} Custom Windows</p>}
+                  {selectedAddons.includes('windows') && windowCount && <p className="text-sm text-on-surface-variant mt-0.5">{windowCount} Windows (Interior)</p>}
                   <p className="text-sm text-primary font-medium mt-1 capitalize">Condition: {condition === 'heavy' ? 'Heavy Duty' : condition}</p>
                 </div>
               </div>
@@ -388,9 +384,10 @@ export default function BookingPage() {
                         firstName, lastName, email, phone,
                         address, city, postalCode, notes,
                         service: selectedTier,
-                        bedrooms, bathrooms, windows,
+                        bedrooms, bathrooms, windows: windowCount || 0,
                         condition, frequency,
                         addons: selectedAddons.map(id => {
+                          if (id === 'windows') return `Window Cleaning (Interior) — ${windowCount} windows`;
                           const found = [
                             { id: 'oven', label: 'Inside Oven' },
                             { id: 'fridge', label: 'Inside Fridge' },

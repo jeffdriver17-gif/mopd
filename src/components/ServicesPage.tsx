@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, Building2, Wand2, CheckCircle2, Plus, Microwave, Maximize, Shirt, Refrigerator, X } from 'lucide-react';
+import { Sparkles, Building2, Wand2, CheckCircle2, Plus, Microwave, Maximize, Shirt, Refrigerator, Key, X } from 'lucide-react';
 
 interface ServicesPageProps {
   onBookNow: () => void;
@@ -138,6 +138,26 @@ export default function ServicesPage({ onBookNow, onNavigate }: ServicesPageProp
                 <button onClick={onBookNow} className="bg-white text-black px-8 py-3 rounded-full font-bold hover:scale-105 transition-transform">Move-In Prep</button>
               </div>
             </div>
+
+            {/* Airbnb / Short-Term Rental */}
+            <div className="md:col-span-12 bg-surface-container-low p-10 rounded-[2.5rem] flex flex-col md:flex-row items-center gap-10">
+              <div className="flex-shrink-0 w-16 h-16 bg-primary-container rounded-2xl flex items-center justify-center">
+                <Key className="text-primary w-8 h-8" />
+              </div>
+              <div className="flex-grow">
+                <span className="inline-block text-[10px] font-black uppercase tracking-[0.2em] text-primary bg-primary-fixed px-3 py-1 rounded-full mb-3">Short-Term Rental</span>
+                <h3 className="text-2xl font-bold text-on-surface mb-2">Airbnb & Vacation Rental Turnovers</h3>
+                <p className="text-on-surface-variant max-w-2xl">Running an Airbnb or short-term rental? We specialize in fast, flawless turnovers between guests — linen changes, full sanitization, and restock — so every stay feels like the first.</p>
+              </div>
+              <div className="flex flex-col gap-3 min-w-[200px]">
+                {['Full Linen Turnover', 'Guest-Ready Sanitization', 'Restock & Refresh'].map((f) => (
+                  <div key={f} className="flex items-center gap-2 text-sm font-semibold text-on-surface">
+                    <CheckCircle2 className="text-primary w-4 h-4 shrink-0" /> {f}
+                  </div>
+                ))}
+              </div>
+              <button onClick={onBookNow} className="shrink-0 px-8 py-4 rounded-2xl bg-primary text-on-primary font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/20">Book Turnover</button>
+            </div>
           </div>
         </div>
       </section>
@@ -149,7 +169,7 @@ export default function ServicesPage({ onBookNow, onNavigate }: ServicesPageProp
             <h2 className="text-4xl md:text-5xl font-extrabold text-on-surface tracking-tighter mb-4">Investment in Clarity</h2>
             <p className="text-on-surface-variant text-lg">Tailored pricing models for every scale of luminous order.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Residential */}
             <div className="bg-surface-container-lowest p-8 rounded-3xl flex flex-col">
               <h4 className="text-xl font-bold mb-2">Residential</h4>
@@ -192,6 +212,20 @@ export default function ServicesPage({ onBookNow, onNavigate }: ServicesPageProp
                 ))}
               </div>
               <button onClick={onBookNow} className="w-full py-4 rounded-xl bg-surface-container-low font-bold hover:bg-surface-container-high transition-colors">Book Move-In/Out</button>
+            </div>
+            {/* Airbnb */}
+            <div className="bg-surface-container-lowest p-8 rounded-3xl flex flex-col">
+              <h4 className="text-xl font-bold mb-2">Airbnb Turnover</h4>
+              <div className="text-4xl font-extrabold mb-6 text-on-surface"><span className="text-xl font-medium text-on-surface-variant mr-1">From</span>$179</div>
+              <p className="text-on-surface-variant mb-8 text-sm">Fast, flawless guest-ready turnovers for short-term rentals.</p>
+              <div className="space-y-4 mb-10 flex-grow">
+                {['Full Linen Turnover', 'Guest-Ready Sanitization', 'Restock & Refresh'].map((f) => (
+                  <div key={f} className="flex items-center gap-3 text-sm font-semibold">
+                    <CheckCircle2 className="text-primary w-5 h-5" /> {f}
+                  </div>
+                ))}
+              </div>
+              <button onClick={onBookNow} className="w-full py-4 rounded-xl bg-surface-container-low font-bold hover:bg-surface-container-high transition-colors">Book Turnover</button>
             </div>
           </div>
         </div>

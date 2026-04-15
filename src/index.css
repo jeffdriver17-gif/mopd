@@ -24,16 +24,16 @@
 
   --color-surface: #fafaf9;
   --color-on-surface: #1c1917;
-  --color-surface-variant: #e7e5e4;
+  --color-surface-variant: #f0eeec;
   --color-on-surface-variant: #57534e;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f5f5f4;
-  --color-surface-container: #e7e5e4;
-  --color-surface-container-high: #d6d3d1;
-  --color-surface-container-highest: #a8a29e;
+  --color-surface-container-low: #f7f6f5;
+  --color-surface-container: #f0eeec;
+  --color-surface-container-high: #e8e5e2;
+  --color-surface-container-highest: #e2deda;
 
-  --color-outline: #78716c;
-  --color-outline-variant: #d6d3d1;
+  --color-outline: #a8a29e;
+  --color-outline-variant: #e2deda;
 }
 
 @layer utilities {

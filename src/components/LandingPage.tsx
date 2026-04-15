@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Star, ArrowRight, Home, Sparkles, Truck, X, Send, Bot, MapPin } from 'lucide-react';
+import { Star, ArrowRight, Home, Sparkles, Truck, Key, X, Send, Bot, MapPin } from 'lucide-react';
 import { SERVICES, TESTIMONIALS } from '@/src/constants';
 import BeforeAfterSlider from './BeforeAfterSlider';
 import { cn } from '@/src/lib/utils';
@@ -9,6 +9,7 @@ const iconMap = {
   Home: Home,
   Sparkles: Sparkles,
   Truck: Truck,
+  Key: Key,
 };
 
 interface LandingPageProps {
@@ -100,7 +101,7 @@ export default function LandingPage({ onBookNow, onViewServices }: LandingPagePr
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {SERVICES.map((service) => {
               const Icon = iconMap[service.icon as keyof typeof iconMap];
               return (

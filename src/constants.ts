@@ -41,15 +41,6 @@ export const SERVICES: Service[] = [
     image: '/move_in_out.png',
     features: ['Full Sanitization', 'Inside Cabinets & Drawers', 'Wall Washing']
   },
-  {
-    id: 'airbnb',
-    title: 'Airbnb & Short-Term Rental',
-    description: 'Fast, flawless turnovers between guests. We make every stay feel like the first.',
-    price: 179,
-    icon: 'Key',
-    image: '/residential_clean.png',
-    features: ['Full Linen Turnover', 'Guest-Ready Sanitization', 'Restock & Refresh']
-  }
 ];
 
 export const TESTIMONIALS = [

@@ -116,6 +116,43 @@ export default function ServicesPage({ onBookNow, onNavigate }: ServicesPageProp
               <button onClick={() => { setIsCorporateModalOpen(true); setIsSubmitted(false); }} className="w-full py-4 rounded-2xl bg-on-secondary text-secondary font-bold hover:bg-white transition-all">Corporate Inquiry</button>
             </div>
 
+            {/* Airbnb — inline dark card */}
+            <div className="md:col-span-12 relative rounded-[2.5rem] overflow-hidden bg-on-surface">
+              <div className="absolute inset-0 bg-gradient-to-br from-on-surface via-on-surface to-primary/30 pointer-events-none" />
+              <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl pointer-events-none translate-x-1/4 -translate-y-1/4" />
+              <div className="relative z-10 p-10 md:p-12 flex flex-col md:flex-row items-start md:items-center gap-10">
+                <div className="flex-grow">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center">
+                      <Key className="text-primary w-5 h-5" />
+                    </div>
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary bg-primary/10 px-3 py-1.5 rounded-full">Short-Term Rental</span>
+                  </div>
+                  <h3 className="text-3xl font-extrabold text-white tracking-tighter mb-3">Airbnb & Short-Term Rentals</h3>
+                  <p className="text-white/60 max-w-xl leading-relaxed">Running a rental? We handle the full turnaround between guests — linens changed, surfaces sanitized, essentials restocked — so every stay feels brand new.</p>
+                </div>
+                <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0">
+                  {['Full Linen Turnover', 'Guest-Ready Sanitization', 'Restock & Refresh'].map((f) => (
+                    <div key={f} className="flex items-center gap-2 text-sm font-semibold text-white/80">
+                      <CheckCircle2 className="text-primary w-4 h-4 shrink-0" /> {f}
+                    </div>
+                  ))}
+                </div>
+                <div className="shrink-0 flex flex-col items-center gap-4">
+                  <div className="text-center">
+                    <span className="font-headline font-extrabold text-2xl text-primary block leading-none">From</span>
+                    <span className="font-headline font-extrabold text-5xl text-white block">$179</span>
+                  </div>
+                  <button
+                    onClick={() => { setIsAirbnbModalOpen(true); setIsAirbnbSubmitted(false); }}
+                    className="bg-primary text-on-primary px-8 py-3 rounded-full font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/30 whitespace-nowrap"
+                  >
+                    Get a Quote
+                  </button>
+                </div>
+              </div>
+            </div>
+
             {/* Deep Clean */}
             <div className="md:col-span-5 bg-surface-container-low p-10 rounded-[2.5rem] flex flex-col justify-between">
               <div>
@@ -152,72 +189,6 @@ export default function ServicesPage({ onBookNow, onNavigate }: ServicesPageProp
               </div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* Airbnb & Short-Term Rental Section */}
-      <section className="py-24 bg-surface px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative rounded-[3rem] overflow-hidden bg-on-surface">
-            {/* Background texture */}
-            <div className="absolute inset-0 bg-gradient-to-br from-on-surface via-on-surface to-primary/30 pointer-events-none" />
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none translate-x-1/4 -translate-y-1/4" />
-
-            <div className="relative z-10 p-10 md:p-16 flex flex-col md:flex-row items-start md:items-center gap-12">
-              {/* Left content */}
-              <div className="flex-grow">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center">
-                    <Key className="text-primary w-6 h-6" />
-                  </div>
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary bg-primary/10 px-4 py-1.5 rounded-full">Short-Term Rental</span>
-                </div>
-                <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tighter mb-4 leading-tight">
-                  Airbnb &<br />Short-Term Rentals
-                </h2>
-                <p className="text-white/70 text-lg max-w-xl mb-8 leading-relaxed">
-                  Running a short-term rental? We handle the full turnaround between guests — linens changed, surfaces sanitized, and essentials restocked — so every stay feels brand new.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-                  {[
-                    { label: 'Full Linen Turnover', sub: 'Fresh sheets & towels every time' },
-                    { label: 'Guest-Ready Sanitization', sub: 'High-touch surfaces & bathrooms' },
-                    { label: 'Restock & Refresh', sub: 'Toiletries, paper goods & more' },
-                  ].map((f) => (
-                    <div key={f.label} className="bg-white/5 border border-white/10 rounded-2xl p-5">
-                      <CheckCircle2 className="text-primary w-5 h-5 mb-3" />
-                      <p className="text-white font-bold text-sm mb-1">{f.label}</p>
-                      <p className="text-white/50 text-xs">{f.sub}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="flex flex-wrap gap-4">
-                  <button
-                    onClick={() => { setIsAirbnbModalOpen(true); setIsAirbnbSubmitted(false); }}
-                    className="bg-primary text-on-primary px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/30"
-                  >
-                    Get a Turnover Quote
-                  </button>
-                  <button
-                    onClick={onBookNow}
-                    className="bg-white/10 border border-white/20 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-colors"
-                  >
-                    Book Now
-                  </button>
-                </div>
-              </div>
-
-              {/* Right stat card */}
-              <div className="shrink-0 bg-white/5 border border-white/10 rounded-3xl p-10 text-center min-w-[220px]">
-                <span className="font-headline font-extrabold text-5xl text-primary block mb-2">From</span>
-                <span className="font-headline font-extrabold text-6xl text-white block mb-4">$179</span>
-                <p className="text-white/50 text-sm font-medium">per turnover</p>
-                <div className="mt-6 pt-6 border-t border-white/10 text-xs text-white/40 leading-relaxed">
-                  Pricing varies by<br />property size & scope
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

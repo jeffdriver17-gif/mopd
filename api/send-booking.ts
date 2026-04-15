@@ -68,7 +68,7 @@ export default async function handler(req: Request) {
 
   const { error } = await resend.emails.send({
     from: 'Mopd <onboarding@resend.dev>',
-    to: 'tidytouchab@protonmail.com',
+    to: 'mopd-ab@protonmail.com',
     subject: `New Booking Request — ${firstName} ${lastName}`,
     html,
   });

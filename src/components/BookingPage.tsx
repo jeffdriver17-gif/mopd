@@ -413,7 +413,7 @@ export default function BookingPage() {
                   }
                 }}
                 disabled={isLoading}
-                className="w-full py-5 rounded-full bg-primary text-white font-headline font-extrabold text-xl shadow-[0_10px_30px_rgba(16,185,129,0.3)] hover:scale-[1.02] transition-transform active:scale-95 disabled:opacity-60 disabled:scale-100"
+                className="w-full py-5 rounded-full bg-primary text-white font-headline font-extrabold text-xl shadow-[0_10px_30px_rgba(249,115,22,0.3)] hover:scale-[1.02] transition-transform active:scale-95 disabled:opacity-60 disabled:scale-100"
               >
                 {isLoading ? 'Sending...' : 'Submit Booking Form'}
               </button>

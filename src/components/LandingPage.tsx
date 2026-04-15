@@ -33,13 +33,13 @@ export default function LandingPage({ onBookNow, onViewServices }: LandingPagePr
           >
             <div className="inline-flex items-center gap-2 bg-primary-fixed px-4 py-1.5 rounded-full mb-6">
               <Star className="w-3 h-3 fill-on-primary-fixed text-on-primary-fixed" />
-              <span className="font-headline text-[10px] font-bold text-on-primary-fixed uppercase tracking-widest">Calgary's #1 Rated Cleaners</span>
+              <span className="font-headline text-[10px] font-bold text-on-primary-fixed uppercase tracking-widest">Calgary's #1 Rated Clean</span>
             </div>
             <h1 className="font-headline font-extrabold text-6xl md:text-8xl text-on-surface leading-[1.05] tracking-tight mb-8 text-balance">
-              Your Home, <br /><span className="text-primary italic">Reimagined.</span>
+              Your Home, <br /><span className="text-primary italic">Sorted.</span>
             </h1>
             <p className="text-lg text-on-surface-variant max-w-lg mb-10 leading-relaxed">
-              Experience the luxury of luminous order. We bring boutique cleaning standards to Calgary homes with meticulous attention to every corner.
+              Boutique cleaning standards for Calgary homes. Meticulous, reliable, and obsessively thorough — we cleaned that.
             </p>
             <div className="flex flex-wrap gap-4">
               <button 
@@ -134,7 +134,7 @@ export default function LandingPage({ onBookNow, onViewServices }: LandingPagePr
       <section className="py-32">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="text-center mb-20">
-            <h2 className="font-headline font-bold text-4xl md:text-5xl text-on-surface mb-6">Why Tidy Touch?</h2>
+            <h2 className="font-headline font-bold text-4xl md:text-5xl text-on-surface mb-6">Why Mopd?</h2>
             <p className="text-on-surface-variant text-lg max-w-2xl mx-auto">More than just a cleaning service. We are your partners in maintaining a healthy, high-performance home.</p>
           </div>
 
@@ -143,8 +143,8 @@ export default function LandingPage({ onBookNow, onViewServices }: LandingPagePr
               <img src="/golden_standard.png" alt="Premium Service" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
               
-              <div className="absolute -top-10 -left-10 opacity-30 pointer-events-none transition-transform duration-700 group-hover:scale-110 z-0">
-                <img src="/logo.png" alt="" className="w-64 h-64 object-contain scale-[1.5]" />
+              <div className="absolute -top-4 -left-2 opacity-20 pointer-events-none transition-transform duration-700 group-hover:scale-110 z-0">
+                <span className="text-8xl font-extrabold tracking-tight font-headline text-white select-none">mop<span className="text-primary">d</span></span>
               </div>
 
               <div className="relative z-10 drop-shadow-md">
@@ -154,8 +154,8 @@ export default function LandingPage({ onBookNow, onViewServices }: LandingPagePr
             </div>
 
             <div className="md:col-span-2 bg-primary-container text-on-primary-container p-10 rounded-[2.5rem] flex items-center gap-6">
-              <div className="bg-white/50 p-2 rounded-2xl w-12 h-12 flex items-center justify-center overflow-hidden shrink-0">
-                <img src="/logo.png" alt="Tidy Touch Eco Icon" className="w-full h-full object-contain scale-[1.8] mix-blend-multiply" />
+              <div className="bg-white/50 px-3 py-1 rounded-2xl flex items-center justify-center shrink-0">
+                <span className="text-sm font-extrabold font-headline tracking-tight"><span className="text-on-primary-container">mop</span><span className="text-primary">d</span></span>
               </div>
               <div>
                 <h4 className="font-headline font-bold text-xl mb-1">Eco-Conscious</h4>
@@ -228,9 +228,9 @@ export default function LandingPage({ onBookNow, onViewServices }: LandingPagePr
         <div className="max-w-7xl mx-auto bg-primary rounded-[4rem] relative overflow-hidden py-24 px-8 md:px-20 text-center">
           <div className="absolute inset-0 signature-gradient opacity-90"></div>
           <div className="relative z-10">
-            <h2 className="font-headline font-extrabold text-4xl md:text-6xl text-on-primary mb-8 tracking-tight">Ready for a Tidy Touch?</h2>
+            <h2 className="font-headline font-extrabold text-4xl md:text-6xl text-on-primary mb-8 tracking-tight">Ready to get Mopd?</h2>
             <p className="text-on-primary/80 text-lg md:text-xl max-w-2xl mx-auto mb-12">
-              Join the growing community of Calgary homeowners who refuse to compromise on their living space.
+              Join the growing community of Calgary homeowners who refuse to settle for anything less than spotless.
             </p>
             <div className="flex flex-col md:flex-row gap-6 justify-center">
               <button 
@@ -269,7 +269,7 @@ export default function LandingPage({ onBookNow, onViewServices }: LandingPagePr
                   <Bot className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold font-headline">Tidy Touch Concierge</h3>
+                  <h3 className="font-bold font-headline">Mopd Concierge</h3>
                   <p className="text-xs text-on-primary/80">Typically replies immediately</p>
                 </div>
               </div>

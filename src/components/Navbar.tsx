@@ -22,17 +22,13 @@ export default function Navbar({ onBookNow, onNavigate, currentView }: NavbarPro
   return (
     <nav className="fixed top-0 w-full z-50 glass-nav shadow-[0_10px_40px_rgba(0,0,0,0.06)]">
       <div className="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
-        <div 
-          className="flex items-center gap-2 cursor-pointer" 
+        <div
+          className="flex items-center cursor-pointer"
           onClick={() => onNavigate('home')}
         >
-          <div className="w-10 h-10 flex items-center justify-center overflow-hidden mix-blend-multiply shrink-0 -ml-1">
-            <img src="/logo.png" alt="Tidy Touch Logo" className="w-full h-full object-contain scale-[1.8]" />
-          </div>
-          <div className="flex flex-col justify-center">
-            <span className="text-2xl font-extrabold tracking-tight text-primary font-headline leading-[0.9]">Tidy Touch</span>
-            <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-primary/70 mt-1">Cleaning Solutions</span>
-          </div>
+          <span className="text-3xl font-extrabold tracking-tight font-headline">
+            <span className="text-on-surface">mop</span><span className="text-primary">d</span>
+          </span>
         </div>
 
         <div className="hidden md:flex items-center gap-8 font-headline text-sm font-medium tracking-tight">

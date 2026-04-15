@@ -15,7 +15,7 @@ export default function AboutPage() {
           Beyond Cleaning.<br />We Curate <span className="text-primary">Sanctuaries.</span>
         </h1>
         <p className="text-lg text-on-surface-variant leading-relaxed">
-          Tidy Touch was born from a simple observation: most cleaning services scrub floors, but very few restore peace of mind. We aim to transform your living environments into spaces of absolute clarity and comfort, serving the greater Calgary area with unparalleled dedication.
+          Mopd was born from a simple observation: most cleaning services scrub floors, but very few restore peace of mind. We aim to transform your living environments into spaces of absolute clarity and comfort, serving the greater Calgary area with unparalleled dedication.
         </p>
       </motion.div>
 

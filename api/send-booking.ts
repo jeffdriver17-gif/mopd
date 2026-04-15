@@ -27,7 +27,7 @@ export default async function handler(req: Request) {
     <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#1a1a1a;">
       <div style="background:#10b981;padding:32px;border-radius:12px 12px 0 0;">
         <h1 style="color:white;margin:0;font-size:28px;">New Booking Request</h1>
-        <p style="color:rgba(255,255,255,0.85);margin:8px 0 0;">Tidy Touch Cleaning Solutions</p>
+        <p style="color:rgba(255,255,255,0.85);margin:8px 0 0;">Mopd — We cleaned that.</p>
       </div>
       <div style="background:#f9fafb;padding:32px;border-radius:0 0 12px 12px;border:1px solid #e5e7eb;">
 
@@ -67,7 +67,7 @@ export default async function handler(req: Request) {
   `;
 
   const { error } = await resend.emails.send({
-    from: 'Tidy Touch <onboarding@resend.dev>',
+    from: 'Mopd <onboarding@resend.dev>',
     to: 'tidytouchab@protonmail.com',
     subject: `New Booking Request — ${firstName} ${lastName}`,
     html,

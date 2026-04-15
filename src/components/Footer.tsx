@@ -9,17 +9,13 @@ export default function Footer({ onNavigate }: FooterProps) {
     <footer className="bg-surface-container-low w-full">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center px-8 md:px-12 py-16 w-full max-w-7xl mx-auto">
         <div className="mb-12 md:mb-0">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-9 h-9 flex items-center justify-center overflow-hidden mix-blend-multiply shrink-0 -ml-1">
-              <img src="/logo.png" alt="Tidy Touch Logo" className="w-full h-full object-contain scale-[1.8]" />
-            </div>
-            <div className="flex flex-col justify-center">
-              <span className="text-xl font-extrabold text-on-surface font-headline leading-[0.9]">Tidy Touch</span>
-              <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mt-1">Cleaning Solutions</span>
-            </div>
+          <div className="mb-4">
+            <span className="text-3xl font-extrabold tracking-tight font-headline">
+              <span className="text-on-surface">mop</span><span className="text-primary">d</span>
+            </span>
           </div>
           <p className="font-body text-xs uppercase tracking-widest text-on-surface-variant max-w-xs">
-            © 2024 Tidy Touch. Luminous Order in Every Corner.
+            © 2026 Mopd. We cleaned that.
           </p>
         </div>
 
